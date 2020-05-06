@@ -8,15 +8,16 @@ export default StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20
   },
-  logoView: {
-    // justifyContent: 'center',
+  carouselView: {
     alignItems: 'center',
-    height: height/2,
+  },
+  logoView: {
+    alignItems: 'center',
   },
   logo: {
     marginTop: 100,
-    height: 120,
-    width: 120,
+    height: 100,
+    width: 100,
   },
   text: {
     ...Fonts.regular,
