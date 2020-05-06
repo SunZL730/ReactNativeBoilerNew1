@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, Image, TouchableOpacity, FlatList, Dimensions } from 'react-native'
+import { Text, View, Image, TouchableOpacity, FlatList, Dimensions, ScrollView } from 'react-native'
 import Carousel, { Pagination } from 'react-native-snap-carousel'
 import styles from './SplashScreenStyle'
 import dummyUsers from './dummy'
@@ -88,29 +88,37 @@ export default class SplashScreen extends React.Component {
   }
   render() {
     return (
-      <View style={[styles.container]}>
-        <View style={{ height: height - 420 }}>
-          <View style={styles.logoView}>
-            <Carousel
-              layout={"default"}
-              ref={ref => this.carousel = ref}
-              data={this.state.carouselItems}
-              sliderWidth={width - 40}
-              itemWidth={width - 40}
-              renderItem={this._renderCarousel}
-              onSnapToItem={(index) => this.setState({ activeDotIndex: index })}
+      <View style={styles.container}>
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} pagingEnabled={true}>
+          <View>
+            <View style={{ height: height - 420 }}>
+              <View style={styles.logoView}>
+                <Carousel
+                  layout={"default"}
+                  ref={ref => this.carousel = ref}
+                  data={this.state.carouselItems}
+                  sliderWidth={width}
+                  itemWidth={width}
+                  renderItem={this._renderCarousel}
+                  onSnapToItem={(index) => this.setState({ activeDotIndex: index })}
+                />
+                {this.pagination}
+              </View>
+            </View>
+            <FlatList
+              data={dummyUsers}
+              renderItem={this.renderItems}
+              keyExtractor={(item, index) => index.toString()}
             />
-            {this.pagination}
+            <TouchableOpacity style={styles.signup}>
+              <Text style={styles.signupText}>Sign Up</Text>
+            </TouchableOpacity>
           </View>
-        </View>
-        <FlatList
-          data={dummyUsers}
-          renderItem={this.renderItems}
-          keyExtractor={(item, index) => index.toString()}
-        />
-        <TouchableOpacity style={styles.signup}>
-          <Text style={styles.signupText}>Sign Up</Text>
-        </TouchableOpacity>
+          <View style={styles.rightView}>
+            <Text>rightView</Text>
+          </View>
+
+        </ScrollView>
       </View>
     )
   }

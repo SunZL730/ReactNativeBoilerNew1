@@ -6,7 +6,6 @@ export default StyleSheet.create({
   container: {
     backgroundColor: Colors.MainColor,
     flex: 1,
-    paddingHorizontal: 20
   },
   carouselView: {
     alignItems: 'center',
@@ -34,12 +33,13 @@ export default StyleSheet.create({
     flexDirection: "row",
     marginBottom: 14,
     borderRadius: 12,
-    paddingHorizontal: 16,
+    marginHorizontal: 20,
     justifyContent: "space-between"
   },
   userBoard1: {
     alignItems: 'center',
     flexDirection: "row",
+    paddingHorizontal: 20
   },
   userIcon: {
     height: 40,
@@ -72,6 +72,7 @@ export default StyleSheet.create({
     height: 24,
     width: 80,
     borderRadius: 12,
+    marginRight: 20
   },
   chatText: {
     ...Fonts.chat,
@@ -79,7 +80,7 @@ export default StyleSheet.create({
     color: Colors.white,
   },
   signup: {
-    paddingHorizontal: 25,
+    marginHorizontal: 20,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: Colors.PrimaryColor,
@@ -92,5 +93,12 @@ export default StyleSheet.create({
     ...Fonts.large,
     textAlign: 'center',
     color: Colors.white,
+  },
+  rightView: {
+    width: width,
+    backgroundColor: "#9c27b0",
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row'
   }
 })
